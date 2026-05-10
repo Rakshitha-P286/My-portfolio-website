@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontend-Backend Practice</title>
+</head>
+<body>
+
+  <h2>Frontend → Backend Practice</h2>
+  <button onclick="getMessage()">Get Message from Backend</button>
+  <p id="output"></p>
+
+  <script>
+    function getMessage() {
+      fetch("http://localhost:5000/api/message")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("output").innerText = data.text;
+        })
+        .catch(err => console.log(err));
+    }
+  </script>
+
+</body>
+</html>
